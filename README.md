@@ -9,7 +9,7 @@
     
     
 * Digitales Flipchart
-  
+  * https://docs.google.com/presentation/d/1awiZG_vpdh--3FWF6Gpf_Ue0o8Fg1vUCFYsK9eM5AeI/edit?usp=sharing
   
 * Seminarzeiten
   * 8 Unterrichtseinheiten mit jeweils 90 Minuten
