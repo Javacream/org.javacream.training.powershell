@@ -13,3 +13,4 @@ $name = "Hugo"
 $name = $name.ToUpper()
 Write-Output $name $name.Length $name.Substring(1,2) $name.StartsWith("H") $name.StartsWith("J")
 
+

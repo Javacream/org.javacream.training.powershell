@@ -23,4 +23,15 @@ $city = $nameToCity["Eduard"]#->null
 $cities= $nameToCity["Emil", "Hugo"]
 #Write-Output $cities
 
+foreach($key in $nameToCity.Keys){
+    Write-Output "Key: $key"
+}
 
+foreach($value in $nameToCity.Values){
+    Write-Output "Value: $vaue"
+}
+
+foreach($key in $nameToCity.Keys){
+    $value = $nameToCity[$key]
+    Write-Output "Key: $key, Value: $value"
+}
