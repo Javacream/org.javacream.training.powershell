@@ -9,6 +9,11 @@ $name = $names[-2] #-> Emil
 $nameRange = $names[1..2]
 #Write-Output $nameRange
 
+#iteration mit foreach
+
+foreach($name in $names){
+    Write-Output "Name: $name"
+}
 
 #@{Liste von key=value-Paare} ist das Hashtable-Literal
 $nameToCity = @{"Hugo"="Berlin";"Emil"="München";"Fritz"="Stuttgart"}
@@ -16,6 +21,6 @@ $city = $nameToCity["Emil"] #-> München
 $city = $nameToCity["Eduard"]#->null
 #Write-Output $city
 $cities= $nameToCity["Emil", "Hugo"]
-Write-Output $cities[0]
+#Write-Output $cities
 
 
