@@ -21,4 +21,19 @@ function Training-TestBookDatabaseWrite(){
     TrainingWrite-BookToDatabase $book
 }
 
-Training-TestBookDatabaseWrite
+function Training-TestWebServiceWrite(){
+    TrainingWrite-TitleToWebService ".NET"
+}
+
+function Training-TestBookWebServiceWrite(){
+    $book = @{
+        "isbn"="ISBN-12-dk"
+        "title"="Powershell"
+        "price"=49.99
+        "available"=$true
+        }
+    TrainingWrite-BookToWebService $book
+}
+
+
+Training-TestBookWebServiceWrite

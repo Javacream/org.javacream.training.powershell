@@ -41,3 +41,17 @@ function TrainingWrite-Books($books){
 function TrainingWrite-Book($book){
     Write-Output "Book: isbn=$($book.isbn), title=$($book.title), price=$($book.price), available=$($book.available)"
 } 
+
+function TrainingWrite-TitleToWebService($title){
+    Invoke-RestMethod -Uri "$endpoint/$title" -Method 'Post'
+}
+
+
+function TrainingWrite-BookToWebService($book){
+    $isbn = $book.isbn
+    Invoke-RestMethod -Uri "$endpoint/$isbn" -Method 'Put' -Body ($book|ConvertTo-Json) -ContentType "application/json"
+}
+
+function TrainingRemove-BookFromWebService($isbn){
+    Invoke-RestMethod -Uri "$endpoint/$isbn" -Method 'Delete'
+}
