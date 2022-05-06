@@ -15,6 +15,10 @@ function TrainingDo-DemoParams($p1, $p2){
 }
 
 
-$result = TrainingDo-DemoParams Hello World
-Write-Output $result
-Write-Output $p1 $functionResult
+function Main(){
+    $result = TrainingDo-DemoParams Hello World
+    Write-Output $result
+    Write-Output $p1 $functionResult
+}
+
+Main
