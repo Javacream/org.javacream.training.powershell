@@ -1,4 +1,27 @@
 ﻿$endpoint = "http://h2908727.stratoserver.net:8080/api/books"
+function TrainingGet-Credential {
+    $password = ConvertTo-SecureString "user" -AsPlainText -Force 
+    return New-Object System.Management.Automation.PSCredential("user", $password)
+}
+
+function TrainingWrite-BookToDatabase($book){
+    try{
+        $credential = TrainingGet-Credential
+        Open-MySqlConnection -Credential $credential -Database javacream -Port 3406 -Server h2908727.stratoserver.net -SSLMode Required
+        Start-SqlTransaction
+            Invoke-SqlUpdate -Query "insert into messages values (@data)" -Parameters @{data = $book.title}
+        #Complete-SqlTransaction
+        Complete-SqlTransaction
+
+    }
+    catch{
+        Write-Output $_
+    }
+    finally{
+        Close-SqlConnection
+    }
+}
+
 function TrainingGet-BooksFromWebService(){
     $books = Invoke-RestMethod -Uri $endpoint
     return $books
@@ -11,7 +34,7 @@ function TrainingGet-BookFromWebService($isbn){
 
 function TrainingWrite-Books($books){
     foreach($book in $books){
-        TrainingWrite-Book $book
+        TrainingWrite-BookToDatabase $book
     }
 }
 
